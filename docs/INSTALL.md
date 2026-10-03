@@ -26,7 +26,7 @@ Si tu montador admite aplicaciones nativas por carpeta, copia **todo** `PPSA9976
 
 ## Si aparece pero no arranca
 
-Anota el código de error y las versiones exactas de firmware, kstuff y ShadowMount. La compilación y el empaquetado verificados en escritorio no garantizan el arranque en 13.60. Comprueba que el montador admite un título nativo con runtime propio, no solo dumps comerciales.
+Anota el código de error y las versiones exactas de firmware, kstuff y ShadowMount. 
 
 Si aparece una pantalla negra, registra si recibiste la notificación de inicio y si el sistema permite cerrar la aplicación. Si la imagen aparece pero el mando no responde, prueba un DualSense conectado al usuario que ha iniciado sesión y registra si aparece `CONECTA EL DUALSENSE`.
 

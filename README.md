@@ -44,7 +44,7 @@ make gameplay-test preview
 make exfat USE_CCACHE=0 BUILD_JOBS=4
 ```
 
-La salida queda en `dist/`. [Guía de compilación](docs/BUILD.md) · [Publicar en GitHub](docs/GITHUB.md).
+La salida queda en `dist/`. [Guía de compilación](docs/BUILD.md)
 
 ## Estado
 

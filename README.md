@@ -61,8 +61,6 @@ python3 tools/verify-exfat.py dist/CrisisDeEstado-v0.1.exfat dist/PPSA99763
 
 La salida principal es `dist/PPSA99763/`, con `eboot.bin`, `sce_sys/`, `sce_module/` y `assets/`. No copies `eboot.bin` por separado. El packer rechaza sobrescribir una imagen existente.
 
-[Guía de compilación](docs/BUILD.md) · [Instalación](docs/INSTALL.md) · [Pruebas](docs/TESTING.md) · [Publicación en GitHub](docs/GITHUB.md) · [Arquitectura](docs/ARCHITECTURE.md)
-
 ## Licencia y créditos
 
 GPL-3.0-or-later; ver [LICENSE](LICENSE) y [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Basado en el toolchain público de PS5 y en `ps5-native-app-boilerplate`. No utiliza un SDK propietario de Sony ni incluye firmware, claves, kstuff, ShadowMount o exploits.

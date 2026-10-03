@@ -12,39 +12,29 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
-      LLVM_CONFIG: llvm-config-18
+      LLVM_CONFIG: /usr/bin/llvm-config-18
       TAR_OPTIONS: --no-same-owner
       USE_CCACHE: "0"
       BUILD_JOBS: "4"
     steps:
-      - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/checkout@v4
       - name: Install toolchain
         run: |
           sudo apt-get update
-          sudo apt-get install --yes clang-18 llvm-18-dev lld-18 make ninja-build g++ python3 wget curl unzip tar exfatprogs
-      - name: Gameplay and input tests
+          sudo apt-get install --yes clang-18 llvm-18-dev lld-18 make ninja-build g++ python3 wget curl unzip tar exfatprogs libsdl2-dev
+      - name: Gameplay, render and desktop build
+        run: make gameplay-test preview desktop
+      - name: Native title and verified exFAT
+        run: make exfat
+      - name: Release files
         run: |
-          mkdir -p build
-          c++ -std=c++20 -Wall -Wextra -Werror tests/crisis/game_test.cpp -o build/game_test
-          ./build/game_test
-          c++ -std=c++20 -DCRISIS_HOST_PREVIEW -Wall -Wextra -Werror tools/preview.cpp -o build/preview
-          ./build/preview build/preview
-      - name: Native build
-        run: make
-      - name: Create and verify exFAT
-        run: |
-          python3 tools/create-exfat.py dist/PPSA99763 dist/CrisisDeEstado-v0.1.exfat
-          fsck.exfat -n dist/CrisisDeEstado-v0.1.exfat
-          python3 tools/verify-exfat.py dist/CrisisDeEstado-v0.1.exfat dist/PPSA99763
           cd dist
-          zip -9 CrisisDeEstado-v0.1.exfat.zip CrisisDeEstado-v0.1.exfat
-          sha256sum CrisisDeEstado-v0.1.exfat CrisisDeEstado-v0.1.exfat.zip PPSA99763.zip > SHA256SUMS.txt
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+          zip -9 CrisisDeEstado-v0.2.exfat.zip CrisisDeEstado-v0.2.exfat
+          sha256sum CrisisDeEstado-v0.2.exfat CrisisDeEstado-v0.2.exfat.zip PPSA99764.zip > SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
         with:
-          name: CrisisDeEstado-PS5
+          name: CrisisDeEstado-PS5-v0.2
           path: |
-            dist/CrisisDeEstado-v0.1.exfat.zip
-            dist/PPSA99763.zip
+            dist/CrisisDeEstado-v0.2.exfat.zip
+            dist/PPSA99764.zip
             dist/SHA256SUMS.txt

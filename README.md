@@ -16,7 +16,7 @@ Beat'em up de sátira política para PS5 con jailbreak. **Versión 0.2.0**.
 
 Descomprime `CrisisDeEstado-v0.2.exfat.zip` y copia **el archivo `.exfat`** a `homebrew/` en la unidad que escanea ShadowMount. Con kstuff y ShadowMount activos, espera al registro y abre **Crisis de Estado - Cumbre Total** desde el menú de la consola.
 
-Title ID de desarrollo: **PPSA99764**, distinto al de v0.1. Consulta [instalación](docs/INSTALL.md).
+Title ID de desarrollo: **PPSA99764**.
 
 | Botón | Acción |
 | --- | --- |
